@@ -20,6 +20,9 @@ def check_file(ent, file_path):
             if words_line:
                 check_words_each_line(ent, words_line)
 
+def support_file_type():
+    return ['.go', '.yaml', '.md', '.sh']
+
 def check_words_each_line(ent, words_line):
     """
 
@@ -63,11 +66,13 @@ def check_spell(ent, full_pathname):
     check all spell word in path_name
     """
     if os.path.isfile(full_pathname):
-        check_file(ent, full_pathname)
+        if os.path.splitext(full_pathname)[1] in support_file_type():
+            check_file(ent, full_pathname)
     elif os.path.isdir(full_pathname):
         all_files = walk_file(full_pathname)
         for f_i in all_files:
-            check_file(ent, f_i)
+            if os.path.splitext(f_i)[1] in support_file_type():
+                check_file(ent, f_i)
 
 def write_word_to_file(words):
     """
@@ -83,6 +88,7 @@ def set_word_ignore():
     with open('spell_check_ignore.txt', 'r+') as s_p:
         global WORD_IGNORE
         WORD_IGNORE = [str(w_i.replace('\n', '')).lower() for w_i in s_p.readlines()]
+
 
 def main():
     """main start"""
