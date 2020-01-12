@@ -1,5 +1,14 @@
 ## spell-check-go
-The project is used to check word typo or spelled incorrectly for Go repository
+The project is used to check en-US word typo or spelled incorrectly for Go repository based [pyenchant](https://github.com/pyenchant/pyenchant)
+
+eg:
+
+Stawrt > False
+
+StarttAction > False
+
+StarttAction > False
+
 
 ## Prerequisites
 python 3
@@ -19,3 +28,13 @@ python spell_check.py project
 Spell checking result is in spell_check_wrong.txt
 
 Words In spell_check_ignore.txt is skipped to check
+
+
+## TODO
+BugFix
+
+September > True
+
+september > False
+
+weird!!!
