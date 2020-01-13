@@ -31,10 +31,16 @@ Words In spell_check_ignore.txt is skipped to check
 
 
 ## TODO
-BugFix
+Seems that Myspell is case insentive, But Don't understatnd why this happens
 
 September > True
 
 september > False
+
+
+Day > True
+
+day > True
+
 
 weird!!!
