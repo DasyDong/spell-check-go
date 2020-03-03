@@ -1,5 +1,5 @@
 ## spell-check-go
-The project is used to check en-US word typo or spelled incorrectly for Go repository based [pyenchant](https://github.com/pyenchant/pyenchant)
+The project is used to check en-US word typo or spelled incorrectly for Go/Py repository based [pyenchant](https://github.com/pyenchant/pyenchant)
 
 eg:
 
@@ -31,16 +31,10 @@ Words In spell_check_ignore.txt is skipped to check
 
 
 ## TODO
-Seems that Myspell is case insentive, But Don't understatnd why this happens
+BugFix
 
 September > True
 
 september > False
-
-
-Day > True
-
-day > True
-
 
 weird!!!

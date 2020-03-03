@@ -14,14 +14,17 @@ WORD_IGNORE = []
 
 
 def check_file(ent, file_path):
-    with open(file_path, 'rb') as f_p:
-        for line in f_p:
-            words_line = line.strip()
-            if words_line:
-                check_words_each_line(ent, words_line)
+    try:
+        with open(file_path, 'rb') as f_p:
+            for line in f_p:
+                words_line = line.strip()
+                if words_line:
+                    check_words_each_line(ent, words_line)
+    except Exception as ex:
+        print(str(ex))
 
-def support_file_type():
-    return ['.go', '.yaml', '.md', '.sh']
+# def support_file_type():
+#     return ['.go', '.yaml', '.md', '.sh', '.rst']
 
 def check_words_each_line(ent, words_line):
     """
@@ -66,13 +69,13 @@ def check_spell(ent, full_pathname):
     check all spell word in path_name
     """
     if os.path.isfile(full_pathname):
-        if os.path.splitext(full_pathname)[1] in support_file_type():
-            check_file(ent, full_pathname)
+        # if os.path.splitext(full_pathname)[1] in support_file_type():
+        check_file(ent, full_pathname)
     elif os.path.isdir(full_pathname):
         all_files = walk_file(full_pathname)
         for f_i in all_files:
-            if os.path.splitext(f_i)[1] in support_file_type():
-                check_file(ent, f_i)
+            # if os.path.splitext(f_i)[1] in support_file_type():
+            check_file(ent, f_i)
 
 def write_word_to_file(words):
     """
